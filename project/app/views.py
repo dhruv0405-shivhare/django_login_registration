@@ -42,6 +42,18 @@ def login(request):
         user=Student.objects.filter(email=email)
         if user:
             data=Student.objects.get(email=email)
+            user_data={
+                'name':data.name,
+                'email':data.email,
+                'phone':data.phone,
+                'dob':data.dob,
+                'subscribe':data.subscribe,
+                'gender':data.gender,
+                'profile_pic':data.profile_pic,
+                'resume':data.resume,
+
+            }
+            print(user_data)
             # print(data.email)
             # print(data.detail)
             # print(data.dob)

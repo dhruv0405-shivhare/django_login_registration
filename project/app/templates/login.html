@@ -1,0 +1,10 @@
+<form action="{% url 'register' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1>{{msg}}</h1>
+   <label for="email">email:</label>
+   <input type="email" name="email" placeholder="Enter your email">
+   <br>
+   <label for="password">Password:</label>
+   <input type="password" name="password" placeholder="Enter your password">
+
+   <input type="submit" value="Submit">
