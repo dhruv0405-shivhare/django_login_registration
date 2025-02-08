@@ -51,6 +51,7 @@ def login(request):
                 'gender':data.gender,
                 'profile_pic':data.profile_pic,
                 'resume':data.resume,
+                'password':data.password,
 
             }
             print(user_data)
@@ -66,12 +67,13 @@ def login(request):
             # print(data.name)
             pass1= data.password
             if pass1 == password:
-                return render(request,'dashboard.html',{'name':data.name,'email':data.email})
+                return render(request,'dashboard.html',{'data':user_data})
             else:
-                msg = "Enter and Password not Match"
+                msg = "Enter Password not Match"
                 return render(request,'login.html',{'msg':msg})
         else:
             msg = "Email not Exist"
             return render(request,'register.html',{'msg':msg})    
+            
     else:
         return render(request,'login.html')
